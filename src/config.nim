@@ -1,14 +1,14 @@
 # ========================================================================================
 #
-#                                   Wayout
-#                                   Config
+#                                   Touch Grass
+#                                     Config
 #
 # ========================================================================================
 
 func getConfigDir(): string =
   # Get XDG_CONFIG_HOME or default "~/.config"
   let dir = getEnv("XDG_CONFIG_HOME", os.getHomeDir() / ".config")
-  return dir / "wayout"
+  return dir / "touch-grass"
 
 proc tryFilePath(filePath: string): string =
   let configDir = getConfigDir()
@@ -25,8 +25,8 @@ proc getFilePath(fileName: string): string =
 
   let lookupPaths = [
     configDir / fileName,
-    "/etc/wayout" / fileName,
-    "/usr/local/etc/wayout" / fileName
+    "/etc/touch-grass" / fileName,
+    "/usr/local/etc/touch-grass" / fileName
   ]
 
   for path in lookupPaths:
@@ -40,8 +40,8 @@ proc getFilePath(fileName: string): string =
 proc initDefaultConfig() =
   var defaultConfig = ""
   let lookupPaths = [
-    "/etc/wayout/config.toml",
-    "/usr/local/etc/wayout/config.toml"
+    "/etc/touch-grass/config.toml",
+    "/usr/local/etc/touch-grass/config.toml"
   ]
 
   for path in lookupPaths:

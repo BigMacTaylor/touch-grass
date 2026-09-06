@@ -1,7 +1,7 @@
 # ========================================================================================
 #
-#                                   Wayout
-#                                by Mac Taylor
+#                                   Touch Grass
+#                                  by Mac Taylor
 #
 # ========================================================================================
 
@@ -157,7 +157,7 @@ proc appActivate(app: Application) =
 
   # Check if already running
   if windows.len > 0:
-    echo "Error: Wayout is already running!"
+    echo "Error: touch-grass is already running!"
     quit(1)
 
   if processArgs():
@@ -226,7 +226,7 @@ proc appActivate(app: Application) =
     discard execShellCmd(command)
 
 proc main() =
-  let app = newApplication("org.gtk.wayout")
+  let app = newApplication("org.gtk.touch-grass")
   app.connect("activate", appActivate)
   discard app.run()
 

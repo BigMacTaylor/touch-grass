@@ -1,17 +1,17 @@
 # ========================================================================================
 #
-#                                   Wayout
-#                              Argument Parser
+#                                   Touch Grass
+#                                 Argument Parser
 #
 # ========================================================================================
 
 proc printHelp() =
-  echo """Wayout:
+  echo """Touch-grass:
   A lightweight logout menu for Wayland compositors.
   Copyright (C) 2026 by Mac Taylor
 
 Usage:
-  wayout [options...]
+  touch-grass [options...]
 
 Options:
   -h, --help                       Show this help message
@@ -63,7 +63,7 @@ proc processArgs(): bool =
         printHelp()
         return true
       of "v", "version":
-        echo "wayout version: " & version
+        echo "touch-grass version: " & version
         return true
       of "d", "default-config":
         initDefaultConfig()
