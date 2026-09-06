@@ -1,0 +1,74 @@
+/*          Default CSS for touch-grass
+                by Mac Taylor
+*/
+
+@define-color blue_3 #3584e4;
+@define-color bg_color_3 rgba(7, 12, 30, 0.85);
+@define-color accent_bg_color @blue_3;
+@define-color accent_color mix(@accent_bg_color,white,0.4);
+@define-color window_bg_color @bg_color_3;
+@define-color window_fg_color rgba(255, 255, 255, 1.0);
+@define-color button_fg_color #a8c0ff;
+@define-color button_bg_color rgba(255, 255, 255, 0.15);
+
+window {
+    background-color: @window_bg_color;
+    color: @window_fg_color;
+}
+
+button {
+	  border-color: #89b4fa;
+	  text-decoration-color: #cdd6f4;
+    color: @button_fg_color;
+    background-color: @button_bg_color;
+    border: 2px solid transparent;
+	  background-repeat: no-repeat;
+	  background-position: 50% 45%;
+	  background-size: 18%;
+    margin: 13px;
+}
+
+button:hover,
+button:focus {
+	  outline-style: none;
+    border: 2px solid;
+    border-color: alpha(@accent_color, 0.7);
+	  background-color: #181825;
+}
+
+button:active {
+    background-color: @button_bg_color;
+}
+
+button.circular {
+    border-radius: 10px;
+}
+
+button label {
+    color: @window_fg_color;
+}
+
+
+#lock {
+    background-image: -gtk-recolor(url('/home/chris/.config/wayout/icons/lock-symbolic.svg'));
+}
+
+#logout {
+    background-image: -gtk-recolor(url("/home/chris/.config/wayout/icons/logout-symbolic.svg"));
+}
+
+#suspend {
+    background-image: -gtk-recolor(url("/home/chris/.config/wayout/icons/suspend-symbolic.svg"));
+}
+
+#hibernate {
+    background-image: -gtk-recolor(url("/home/chris/.config/wayout/icons/hibernate-symbolic.svg"));
+}
+
+#shutdown {
+    background-image: -gtk-recolor(url("/home/chris/.config/wayout/icons/shutdown-symbolic.svg"));
+}
+
+#reboot {
+    background-image: -gtk-recolor(url("/home/chris/.config/wayout/icons/reboot-symbolic.svg"));
+}
