@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Svg Vector Icons : http://www.onlinewebfonts.com/icon -->
+
+<svg
+   version="1.1"
+   x="0px"
+   y="0px"
+   viewBox="0 0 1000 1000"
+   enable-background="new 0 0 1000 1000"
+   xml:space="preserve"
+   id="svg1"
+   sodipodi:docname="shutdown.svg"
+   inkscape:version="1.3.1 (9b9bdc1480, 2023-11-25, custom)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg"><defs
+   id="defs1"><inkscape:path-effect
+     effect="fillet_chamfer"
+     id="path-effect2"
+     is_visible="true"
+     lpeversion="1"
+     nodesatellites_param="F,0,0,1,0,52.929707,0,1 @ F,0,0,1,0,0,0,1 @ F,0,0,1,0,0,0,1 @ F,0,0,1,0,0,0,1 @ F,0,0,1,0,0,0,1 @ F,0,0,1,0,0,0,1 @ F,0,0,1,0,53.100861,0,1 @ F,0,0,1,0,52.929707,0,1 @ F,0,0,1,0,0,0,1 @ F,0,0,1,0,0,0,1 @ F,0,0,1,0,0,0,1 @ F,0,0,1,0,0,0,1 @ F,0,0,1,0,0,0,1 @ F,0,0,1,0,55.495458,0,1"
+     radius="0"
+     unit="px"
+     method="auto"
+     mode="F"
+     chamfer_steps="1"
+     flexible="false"
+     use_knot_distance="true"
+     apply_no_radius="true"
+     apply_with_radius="true"
+     only_selected="false"
+     hide_knots="false" /></defs><sodipodi:namedview
+   id="namedview1"
+   pagecolor="#505050"
+   bordercolor="#ffffff"
+   borderopacity="1"
+   inkscape:showpageshadow="0"
+   inkscape:pageopacity="0"
+   inkscape:pagecheckerboard="1"
+   inkscape:deskcolor="#505050"
+   inkscape:zoom="0.21925"
+   inkscape:cx="1831.2429"
+   inkscape:cy="-497.14937"
+   inkscape:window-width="1900"
+   inkscape:window-height="1001"
+   inkscape:window-x="0"
+   inkscape:window-y="0"
+   inkscape:window-maximized="1"
+   inkscape:current-layer="svg1" />
+<metadata
+   id="metadata1"> Svg Vector Icons : http://www.onlinewebfonts.com/icon </metadata>
+
+<path
+   id="path1-7"
+   style="fill:#000000;fill-opacity:1"
+   d="M 499.68555 10.003906 C 457.38559 10.003906 447.18555 43.446843 447.18555 84.59375 L 447.18555 457.45312 C 447.18555 498.69753 457.38559 532.04297 499.68555 532.04297 C 541.9855 532.04297 552.18555 498.60003 552.18555 457.45312 L 552.18555 84.59375 C 552.18555 43.446843 541.8855 10.101406 499.68555 10.003906 z M 211.96094 114.56445 C 202.07846 114.99442 192.23301 118.54777 183.86523 125.62109 C 173.36433 134.49756 163.24173 143.80905 153.52539 153.52539 C 64.850479 242.2003 10 364.70014 10 500 C 10 770.59973 229.40027 990 500 990 C 770.59973 990 990 770.59973 990 500 C 990 364.70014 935.14952 242.2003 846.47461 153.52539 C 837.36265 144.41343 827.8933 135.65803 818.08984 127.2832 C 794.79853 107.38606 760.06634 114.29157 742.93359 139.70508 C 727.68269 162.32721 735.26925 193.70025 757.01562 213.20117 C 762.24544 217.89097 767.34671 222.72171 772.3125 227.6875 C 841.99993 297.37493 885.09961 393.65011 885.09961 500 C 885.09961 712.69979 712.69979 885.09961 500 885.09961 C 287.30021 885.09961 114.90039 712.69979 114.90039 500 C 114.90039 393.65011 158.00007 297.37493 227.6875 227.6875 C 232.61296 222.76204 237.67217 217.96844 242.85742 213.31445 C 264.66536 193.74093 271.39152 160.9517 254.99805 136.63477 C 245.00419 121.81058 228.43173 113.84784 211.96094 114.56445 z "
+   inkscape:label="path1" /></svg>
