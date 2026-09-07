@@ -17,23 +17,23 @@ window {
 }
 
 button {
-	  border-color: #89b4fa;
-	  text-decoration-color: #cdd6f4;
+    border-color: #89b4fa;
+    text-decoration-color: #cdd6f4;
     color: @button_fg_color;
     background-color: @button_bg_color;
     border: 2px solid transparent;
-	  background-repeat: no-repeat;
-	  background-position: 50% 45%;
-	  background-size: 18%;
+    background-repeat: no-repeat;
+    background-position: 50% 45%;
+    background-size: 18%;
     margin: 13px;
 }
 
 button:hover,
 button:focus {
-	  outline-style: none;
+    outline-style: none;
     border: 2px solid;
     border-color: alpha(@accent_color, 0.7);
-	  background-color: #181825;
+    background-color: #181825;
 }
 
 button:active {
@@ -51,24 +51,30 @@ button label {
 
 #lock {
     background-image: -gtk-recolor(url("/usr/share/touch-grass/icons/lock-symbolic.svg"));
+    color: @button_fg_color;
 }
 
 #logout {
     background-image: -gtk-recolor(url("/usr/share/touch-grass/icons/logout-symbolic.svg"));
+    color: @button_fg_color;
 }
 
 #suspend {
     background-image: -gtk-recolor(url("/usr/share/touch-grass/icons/suspend-symbolic.svg"));
+    color: @button_fg_color;
 }
 
 #hibernate {
     background-image: -gtk-recolor(url("/usr/share/touch-grass/icons/hibernate-symbolic.svg"));
+    color: @button_fg_color;
 }
 
 #shutdown {
     background-image: -gtk-recolor(url("/usr/share/touch-grass/icons/shutdown-symbolic.svg"));
+    color: @button_fg_color;
 }
 
 #reboot {
     background-image: -gtk-recolor(url("/usr/share/touch-grass/icons/reboot-symbolic.svg"));
+    color: @button_fg_color;
 }
