@@ -15,16 +15,15 @@ import parsetoml
 
 type
   Button = object
+    name: string
+    command: string
     label: string
-    action: string
-    text: string
-    yalign: float32
     xalign: float32
-    `bind`: uint32
+    yalign: float32
+    keybind: uint32
     circular: bool
 
 var
-  command: string = ""
   configPath: string = ""
   layoutPath: string = ""
   cssPath: string = ""
@@ -51,12 +50,16 @@ proc onBgClick(box: EventBox, event: EventButton): bool =
       destroy(windows[i])
   quit()
 
-proc execute(action: cstring) {.cdecl.} =
-  command = $action
+proc execute(command: string) =
+  if command != "":
+    discard execShellCmd(command)
+
   destroy(window)
+
   for i in 0 ..< numOfMonitors:
     if i != primaryMonitor and windows.len > i:
       destroy(windows[i])
+
   quit()
 
 proc onKeyPress(widget: gtk.Window; event: gdk.EventKey): bool =
@@ -66,8 +69,8 @@ proc onKeyPress(widget: gtk.Window; event: gdk.EventKey): bool =
     quit()
   
   for btn in buttons:
-    if btn.bind == key.uint32:
-      execute(btn.action.cstring)
+    if btn.keybind == key.uint32:
+      execute(btn.command)
       return true
   
   return false
@@ -76,9 +79,9 @@ proc onKeyPress(widget: gtk.Window; event: gdk.EventKey): bool =
 #                                    Buttons
 # ----------------------------------------------------------------------------------------
 
-proc onBtnClick(btn: gtk.Button, count: int) =
+proc onBtnClick(btn: gtk.Button, i: int) =
   echo "btn click"
-  execute(buttons[count].action.cstring)
+  execute(buttons[i].command)
 
 proc onBtnHover(btn: gtk.Button, event: EventCrossing): bool =
   #if not focusProtect:
@@ -112,16 +115,18 @@ proc createButtons(container: EventBox) =
       if count >= numButtons:
         break
       
-      var btnText = buttons[count].text
+      var btnText = buttons[count].label
       if showBinds:
-        btnText &= " [" & char(buttons[count].bind) & "]"
+        btnText &= " [" & char(buttons[count].keybind) & "]"
 
       let btn = newButton(cstring(btnText))
-      btn.setName(cstring(buttons[count].label))
+      btn.setName(cstring(buttons[count].name))
 
-      let label = cast[Label](btn.getChild())
-      label.setYalign(buttons[count].yalign)
-      label.setXalign(buttons[count].xalign)
+      let child = btn.getChild()
+      if child != nil:
+        let label = cast[Label](child)
+        label.setXalign(buttons[count].xalign)
+        label.setYalign(buttons[count].yalign)
 
       if buttons[count].circular:
         let context = btn.getStyleContext()
@@ -135,18 +140,6 @@ proc createButtons(container: EventBox) =
       grid.attach(btn, i, j, 1, 1)
       
       inc count
-
-proc loadCss(path: string) =
-  if path == "":
-    return
-
-  let provider = newCssProvider()
-  try:
-    discard provider.loadFromPath(cstring(path))
-    let screen = getDefaultScreen()
-    addProviderForScreen(screen, provider, STYLE_PROVIDER_PRIORITY_USER)
-  except:
-    stderr.writeLine "Failed to load CSS: " & getCurrentExceptionMsg()
 
 # ----------------------------------------------------------------------------------------
 #                                    Main
@@ -216,14 +209,17 @@ proc appActivate(app: Application) =
   clickBox.connect("button-press-event", onBgClick)
   #clickBox.connect("motion-notify-event", onBgMotion)
 
-  loadCss(cssPath)
+  let provider = newCssProvider()
+  try:
+    discard provider.loadFromPath(cstring(cssPath))
+    let screen = getDefaultScreen()
+    addProviderForScreen(screen, provider, STYLE_PROVIDER_PRIORITY_USER)
+  except:
+    stderr.writeLine "Error: Failed to load CSS: " & getCurrentExceptionMsg()
 
   window.add(clickBox)
   window.showAll()
   window.setFocus(nil)
-
-  if command != "":
-    discard execShellCmd(command)
 
 proc main() =
   let app = newApplication("org.gtk.touch-grass")

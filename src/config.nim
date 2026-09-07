@@ -18,7 +18,7 @@ proc tryFilePath(filePath: string): string =
   elif fileExists(configDir / filePath):
     return configDir / filePath
   else:
-    stderr.writeLine "Error: Failed to open " & filePath
+    stderr.writeLine "Error: Failed to open file \'" & filePath & "\'"
 
 proc getFilePath(fileName: string): string =
   let configDir = getConfigDir()
@@ -33,7 +33,7 @@ proc getFilePath(fileName: string): string =
     if fileExists(path):
       return path
 
-  stderr.writeLine "Error: Failed to find " & fileName
+  stderr.writeLine "Error: Failed to find file \'" & fileName & "\'"
 
   return ""
 
@@ -107,23 +107,23 @@ proc parseLayout(layoutFile: string): bool =
       let item = parseJson(jsonObj)
       
       var btn: Button
-      btn.label = item["label"].getStr()
-      btn.action = item["action"].getStr()
-      btn.text = item["text"].getStr()
-      btn.yalign = 0.9'f32
+      btn.name = item["label"].getStr()
+      btn.command = item["action"].getStr()
+      btn.label = item["text"].getStr()
       btn.xalign = 0.5'f32
+      btn.yalign = 0.9'f32
       btn.circular = false
       
       if item.hasKey("keybind"):
         let kb = item["keybind"].getStr()
         if kb.len == 1:
-          btn.bind = uint32(kb[0])
-      
-      if item.hasKey("height"):
-        btn.yalign = float32(item["height"].getFloat())
-      
+          btn.keybind = uint32(kb[0])
+
       if item.hasKey("width"):
         btn.xalign = float32(item["width"].getFloat())
+
+      if item.hasKey("height"):
+        btn.yalign = float32(item["height"].getFloat())
       
       if item.hasKey("circular"):
         btn.circular = item["circular"].getBool()
@@ -175,26 +175,17 @@ proc parseConfig(configFile: string): bool =
   let btnElems = config["Button"].getElems()
   for elem in btnElems:
     var btn: Button
-    btn.label = elem["label"].getStr()
-    btn.action = elem["action"].getStr()
-    btn.text = elem["text"].getStr()
-    btn.yalign = 0.9'f32
-    btn.xalign = 0.5'f32
-    btn.circular = false
+    btn.name = elem.getOrDefault("name").getStr("")
+    btn.command = elem.getOrDefault("command").getStr("")
+    btn.label = elem.getOrDefault("label").getStr("")
+    btn.xalign = elem.getOrDefault("width").getFloat(0.5)
+    btn.yalign = elem.getOrDefault("height").getFloat(0.9)
+    btn.circular = elem.getOrDefault("circular").getBool(false)
 
     if elem.hasKey("keybind"):
       let kb = elem["keybind"].getStr()
       if kb.len == 1:
-        btn.bind = uint32(kb[0])
-
-    if elem.hasKey("height"):
-      btn.yalign = float32(elem["height"].getFloat())
-
-    if elem.hasKey("width"):
-      btn.yalign = float32(elem["width"].getFloat())
-
-    if elem.hasKey("circular"):
-      btn.circular = elem["circular"].getBool()
+        btn.keybind = uint32(kb[0])
 
     buttons.add(btn)
 

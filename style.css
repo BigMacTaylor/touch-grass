@@ -50,25 +50,25 @@ button label {
 
 
 #lock {
-    background-image: -gtk-recolor(url('/home/chris/.config/wayout/icons/lock-symbolic.svg'));
+    background-image: -gtk-recolor(url("/usr/share/touch-grass/icons/lock-symbolic.svg"));
 }
 
 #logout {
-    background-image: -gtk-recolor(url("/home/chris/.config/wayout/icons/logout-symbolic.svg"));
+    background-image: -gtk-recolor(url("/usr/share/touch-grass/icons/logout-symbolic.svg"));
 }
 
 #suspend {
-    background-image: -gtk-recolor(url("/home/chris/.config/wayout/icons/suspend-symbolic.svg"));
+    background-image: -gtk-recolor(url("/usr/share/touch-grass/icons/suspend-symbolic.svg"));
 }
 
 #hibernate {
-    background-image: -gtk-recolor(url("/home/chris/.config/wayout/icons/hibernate-symbolic.svg"));
+    background-image: -gtk-recolor(url("/usr/share/touch-grass/icons/hibernate-symbolic.svg"));
 }
 
 #shutdown {
-    background-image: -gtk-recolor(url("/home/chris/.config/wayout/icons/shutdown-symbolic.svg"));
+    background-image: -gtk-recolor(url("/usr/share/touch-grass/icons/shutdown-symbolic.svg"));
 }
 
 #reboot {
-    background-image: -gtk-recolor(url("/home/chris/.config/wayout/icons/reboot-symbolic.svg"));
+    background-image: -gtk-recolor(url("/usr/share/touch-grass/icons/reboot-symbolic.svg"));
 }

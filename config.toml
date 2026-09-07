@@ -7,42 +7,56 @@
 
 # Window Settings
 [Window]
-buttons_per_row = 2        # Set the number of buttons per row
+buttons_per_row = 3        # Set the number of buttons per row
 column_spacing = 0         # Set space between buttons columns
 row_spacing = 0            # Set space between buttons rows
-#margin_all = 230          # Set margin around all buttons
-margin_top = 400           # Set margin for top of buttons
-margin_bottom = 400        # Set margin for bottom of buttons
-margin_left = 700          # Set margin for left of buttons
-margin_right = 700         # Set margin for right of buttons
-show_binds = true          # Show keybinds on buttons
+margin_all = 230           # Set margin around all buttons
+#margin_top = 400          # Set margin for top of buttons
+#margin_bottom = 400       # Set margin for bottom of buttons
+#margin_left = 600         # Set margin for left of buttons
+#margin_right = 600        # Set margin for right of buttons
+show_binds = false         # Show keybinds on buttons
 
 
 # Button Settings
 [[Button]]
-label = "lock"
-action = "swaylock"
-text = "Lock"
+id = "lock" # ID for css file
+command = "swaylock"
+label = "Lock"
 keybind = "l"
 circular = true
 
 [[Button]]
-label = "shutdown"
-action = "systemctl poweroff"
-text = "Shutdown"
-keybind = "s"
+id = "hibernate"
+command = "sleep 1; systemctl hibernate"
+label = "Hibernate"
+keybind = "h"
 circular = true
 
 [[Button]]
-label = "logout"
-action = "swaymsg exit"
-text = "Logout"
+id = "logout"
+command = "swaymsg exit"
+label = "Logout"
 keybind = "e"
 circular = true
 
 [[Button]]
-label = "reboot"
-action = "systemctl reboot"
-text = "Reboot"
+id = "shutdown"
+command = "systemctl poweroff"
+label = "Shutdown"
+keybind = "s"
+circular = true
+
+[[Button]]
+id = "suspend"
+command = "systemctl suspend"
+label = "Suspend"
+keybind = "u"
+circular = true
+
+[[Button]]
+id = "reboot"
+command = "systemctl reboot"
+label = "Reboot"
 keybind = "r"
 circular = true
