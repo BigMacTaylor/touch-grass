@@ -38,6 +38,10 @@ var
   spacing: array[2, int] = [0, 0]
   showBinds: bool = false
 
+template debug(args: varargs[untyped]) =
+  when not defined(release) and not defined(danger):
+    system.debugEcho(args)
+
 include /[config, arg_parser]
 
 # ----------------------------------------------------------------------------------------
@@ -80,7 +84,7 @@ proc onKeyPress(widget: gtk.Window; event: gdk.EventKey): bool =
 # ----------------------------------------------------------------------------------------
 
 proc onBtnClick(btn: gtk.Button, i: int) =
-  echo "btn click"
+  debug "btn click: ", i
   execute(buttons[i].command)
 
 proc onBtnHover(btn: gtk.Button, event: EventCrossing): bool =
@@ -146,6 +150,7 @@ proc createButtons(container: EventBox) =
 # ----------------------------------------------------------------------------------------
 
 proc appActivate(app: Application) =
+  debug "appActivate"
   let windows = app.getWindows()
 
   # Check if already running

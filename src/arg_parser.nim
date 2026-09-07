@@ -42,6 +42,7 @@ proc parseIntValue(key, val: string): int =
     quit(1)
 
 proc processArgs(): bool =
+  debug "processArgs"
   var p = initOptParser(
     commandLineParams(),
     shortNoVal = {'h', 'v', 'd', 's'},
