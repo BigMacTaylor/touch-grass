@@ -20,42 +20,42 @@ show_binds = false         # Show keybinds on buttons
 
 # Button Settings
 [[Button]]
-id = "lock" # ID for css file
+name = "lock" # name in css file
 command = "swaylock"
 label = "Lock"
 keybind = "l"
 circular = true
 
 [[Button]]
-id = "hibernate"
+name = "hibernate"
 command = "sleep 1; systemctl hibernate"
 label = "Hibernate"
 keybind = "h"
 circular = true
 
 [[Button]]
-id = "logout"
+name = "logout"
 command = "swaymsg exit"
 label = "Logout"
 keybind = "e"
 circular = true
 
 [[Button]]
-id = "shutdown"
+name = "shutdown"
 command = "systemctl poweroff"
 label = "Shutdown"
 keybind = "s"
 circular = true
 
 [[Button]]
-id = "suspend"
+name = "suspend"
 command = "systemctl suspend"
 label = "Suspend"
 keybind = "u"
 circular = true
 
 [[Button]]
-id = "reboot"
+name = "reboot"
 command = "systemctl reboot"
 label = "Reboot"
 keybind = "r"
