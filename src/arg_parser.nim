@@ -16,7 +16,7 @@ Usage:
 Options:
   -h, --help                       Show this help message
   -v, --version                    Show version number
-  -d, --default-config             Copy default config to home dir
+  -i, --init-defaults              Copy default configs to home dir
   -c, --config </path/to/config>   Specify a config file
   -l, --layout </path/to/layout>   Specify a layout file (deprecated)
   -S, --css </path/to/style.css>   Specify a css file
@@ -66,8 +66,9 @@ proc processArgs(): bool =
       of "v", "version":
         echo "touch-grass version: " & version
         return true
-      of "d", "default-config":
-        initDefaultConfig()
+      of "i", "init-defaults":
+        initDefaultFile("config.toml")
+        initDefaultFile("style.css")
         return true
 
       # Check string values

@@ -37,29 +37,29 @@ proc getFilePath(fileName: string): string =
 
   return ""
 
-proc initDefaultConfig() =
-  var defaultConfig = ""
+proc initDefaultFile(fileName: string) =
+  var defaultFile = ""
   let lookupPaths = [
-    "/etc/touch-grass/config.toml",
-    "/usr/local/etc/touch-grass/config.toml"
+    "/etc/touch-grass" / fileName,
+    "/usr/local/etc/touch-grass" / fileName
   ]
 
   for path in lookupPaths:
     if fileExists(path):
-      defaultConfig = path
+      defaultFile = path
       continue
 
-  if defaultConfig == "":
+  if defaultFile == "":
     return
 
   let targetDir = getConfigDir()
 
-  if fileExists(targetDir / "config.toml"):
+  if fileExists(targetDir / fileName):
     return
 
   # Create directory if missing
   createDir(targetDir)
-  copyFileToDir(defaultConfig, targetDir)
+  copyFileToDir(defaultFile, targetDir)
 
 # ----------------------------------------------------------------------------------------
 #                                    Parse Layout
